@@ -9,23 +9,21 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 public class SpringTestApplicationTest extends IntegrationTest {
 
-    @Autowired
-    private StudentScoreRepository studentScoreRepository;
+  @Autowired private StudentScoreRepository studentScoreRepository;
 
-    @Autowired
-    private EntityManager entityManager;
+  @Autowired private EntityManager entityManager;
 
-    @Test
-    void contextLoader() {
-        var studentScore = StudentScoreFixture.passed();
-        var savedStudentScore = studentScoreRepository.save(studentScore);
+  @Test
+  void contextLoader() {
+    var studentScore = StudentScoreFixture.passed();
+    var savedStudentScore = studentScoreRepository.save(studentScore);
 
-        entityManager.flush();
-        entityManager.clear();
+    entityManager.flush();
+    entityManager.clear();
 
-        var queryStudentScore = studentScoreRepository.findById(savedStudentScore.getId()).orElseThrow();
+    var queryStudentScore =
+        studentScoreRepository.findById(savedStudentScore.getId()).orElseThrow();
 
-        Assertions.assertEquals(savedStudentScore, queryStudentScore);
-    }
-
+    Assertions.assertEquals(savedStudentScore, queryStudentScore);
+  }
 }

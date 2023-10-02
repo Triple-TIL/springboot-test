@@ -8,20 +8,18 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 public class RedisServiceTest extends IntegrationTest {
 
-    @Autowired
-    private RedisService redisService;
+  @Autowired private RedisService redisService;
 
-    @Test
-    @DisplayName("Redis Get / Set 테스트")
-    public void redisGetSetTests() {
-        String expectValue = "hello";
-        String key = "hi";
+  @Test
+  @DisplayName("Redis Get / Set 테스트")
+  public void redisGetSetTests() {
+    String expectValue = "hello";
+    String key = "hi";
 
-        redisService.set(key, expectValue);
+    redisService.set(key, expectValue);
 
-        String actualValue = redisService.get(key);
+    String actualValue = redisService.get(key);
 
-        Assertions.assertEquals(expectValue, actualValue);
-    }
-
+    Assertions.assertEquals(expectValue, actualValue);
+  }
 }

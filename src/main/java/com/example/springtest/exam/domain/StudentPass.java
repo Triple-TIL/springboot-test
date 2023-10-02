@@ -12,23 +12,23 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class StudentPass {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+  @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  private Long id;
 
-    @Column(name = "exam")
-    private String exam;
+  @Column(name = "exam")
+  private String exam;
 
-    @Column(name = "student_name")
-    private String studentName;
+  @Column(name = "student_name")
+  private String studentName;
 
-    @Column(name = "avg_score")
-    private Double avgScore;
+  @Column(name = "avg_score")
+  private Double avgScore;
 
-    @Builder
-    public StudentPass(String exam, String studentName, Double avgScore) {
-        this.exam = exam;
-        this.studentName = studentName;
-        this.avgScore = avgScore;
-    }
+  @Builder
+  public StudentPass(String exam, String studentName, Double avgScore) {
+    this.exam = exam;
+    this.studentName = studentName;
+    this.avgScore = avgScore;
+  }
 }
